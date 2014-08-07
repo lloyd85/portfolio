@@ -380,7 +380,7 @@ module.exports = function (grunt) {
         pages: {
             options: {
                 remote: 'git@github.com:lloyd85/portfolio.git',
-                branch: 'gh-pages'
+                branch: 'gh-pages2'
             }
         },/*,
         heroku: {
