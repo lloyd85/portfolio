@@ -1,0 +1,50 @@
+/**
+ * ----------------------------------------------------------------------------------------
+ * Pie Chart Styles
+ * ----------------------------------------------------------------------------------------
+ */
+
+#pie-chart {
+  h3 {
+    position: relative;
+    top: 2rem;
+    font-family: 'Lato', Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-size: 2.2rem;
+    font-weight: 600;
+    font-style: italic;
+    text-transform: capitalize;
+  }
+}
+
+#pie-chart-canvas {
+  float: left;
+}
+
+#pie-chart-legend {
+  float: left;
+  margin: 0;
+  padding: 0;
+
+  list-style-type: none;
+
+  > ul > li {
+    margin: 0;
+    padding: 0;
+  }
+}
+
+.pie-chart-legend-bullet {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  margin-right: 7px;
+  margin-bottom: 0px;
+
+  border:2px solid black;
+
+  color: #000;
+}
+
+.pie-chart-legend-desc {
+  font-size: 1.6rem;
+}

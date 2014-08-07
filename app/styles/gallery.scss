@@ -1,0 +1,234 @@
+/**
+ * ----------------------------------------------------------------------------------------
+ * Gallery Styles
+ * ----------------------------------------------------------------------------------------
+ */
+
+#gallery {
+
+  background: white;
+}
+
+#gallery-image {
+  position: fixed;
+  top: 20%;
+  width: 100%;
+
+  text-align: center;
+
+  z-index: 20;
+}
+
+#gallery-image-pane {
+  width: 745px;
+  height: 470px;
+
+  margin: 0 auto;
+  background: white;
+
+  border: 1px solid red;
+
+  > img {
+    width: 730px;
+    height: 435px;
+    margin: 0 auto;
+
+    background-color: #ffff00;
+    border: brown 1px solid;
+  }
+}
+
+#gallery-btn-close {
+  position: fixed;
+  top: 30px;
+  right: 30px;
+
+  text-align: center;
+  
+  z-index: 30;
+
+  > div {
+    width: 30px;
+    height: 30px;
+
+    border-radius: 30px;
+    
+    color: white;
+    background: black;
+    border: 1px solid white;
+  }
+}
+
+#gallery-button-group {
+  position: fixed;
+  top: 300px;
+  width: 100%;
+  height: 45px;
+
+  z-index: 25;
+
+ > div {
+   position: relative;
+    border-radius: 45px;
+    width: 45px;
+    height: 45px;
+
+    background: red;
+    color: white;
+  }
+}
+
+#gallery-bg {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 1000px;
+
+  opacity: .5;
+  background-color: black;
+
+  z-index: 10;
+}
+
+#gallery-detail {
+  width: 100%;
+  font-family: 'Rambla', Arial, sans-serif;
+  font-size: 1.6rem;
+}
+
+.gallery-detail-icon {
+  font-weight: bold;
+  color: red;
+  float: left;
+}
+
+.gallery-detail-text {
+  color: grey;
+  float: left;
+}
+
+#gallery-btn-left {
+  float: left;
+}
+
+#gallery-btn-right {
+  float: right;
+}
+
+#gallery-btn-cta {
+  position: fixed;
+  width: 100%;
+  bottom: 10%;
+
+  text-align: center;
+
+  z-index: 20;
+
+  > a {
+    height: 30px;
+    padding: 5px 10px 5px 30px;
+
+    background: white;
+
+    border: solid 1px red;
+    border-radius: 5px;
+
+    color: red;
+
+    font-family: 'Rambla' , Arial, sans-serif;
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    text-decoration: none;
+  }
+}
+
+#gallery-image-content.active {
+  visibility: visible;
+  opacity: 1;
+
+  -webkit-transition: visibility 0s linear 0s, opacity 0.5s linear;
+  -moz-transition: visibility 0s linear 0s, opacity 0.5s linear;
+  -ms-transition: visibility 0s linear 0s, opacity 0.5s linear;
+  -o-transition: visibility 0s linear 0s, opacity 0.5s linear;
+  transition: visibility 0s linear 0s, opacity 0.5s linear;
+}
+
+#gallery-image-content {
+  visibility: hidden;
+  opacity: 0;
+
+  -webkit-transition: visibility 0s linear 0.5s, opacity 0.5s linear;
+  -moz-transition: visibility 0s linear 0.5s, opacity 0.5s linear;
+  -ms-transition: visibility 0s linear 0.5s, opacity 0.5s linear;
+  -o-transition: visibility 0s linear 0.5s, opacity 0.5s linear;
+  transition: visibility 0s linear 0.5s, opacity 0.5s linear;
+}
+
+#gallery-thumb-content {
+  width: 100%;
+}
+
+.gallery-thumb {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  background: green;
+
+  > div {
+    width:100%;
+    height: 100%;
+
+    background: darkgreen;
+
+    cursor: pointer;
+  }
+}
+
+.fadeOutIn {
+  -webkit-opacity: 0;
+  -moz-opacity: 0;
+  opacity: 0;
+
+  -webkit-transition: all .5s ease-in-out;
+  -moz-transition: all .5s ease-in-out;
+  -ms-transition: all .5s ease-in-out;
+  -o-transition: all .5s ease-in-out;
+  transition: all .5s ease-in-out;
+
+  &:hover {
+    -webkit-opacity: 1;
+    -moz-opacity: 1;
+    opacity: 1;
+  }
+}
+
+.gallery-button-small {
+  width: 110px;
+  height: 40px;
+  padding: 0 15px 0 0;
+  position: absolute;
+  right: 30px;
+  bottom: 30px;
+
+  background-image: url("../images/icons/icon-link.svg");
+  -webkit-background-size: 24px 24px;
+  background-size: 22px 22px;
+  background-position: 15px 5px;
+  background-repeat: no-repeat;
+
+  border: 2px white solid;
+  color: white;
+  font-family: 'Rambla', Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-size: 2.2rem;
+  font-weight: 900;
+  text-align: right;
+  text-decoration: none;
+  text-transform: uppercase;
+  line-height: 40px;
+
+  cursor: pointer;
+
+  &:hover {
+    border: 1px white solid;
+  }
+}

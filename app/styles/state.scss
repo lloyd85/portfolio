@@ -1,0 +1,24 @@
+@mixin opacity($opacity) {
+  opacity: $opacity;
+  $opacity-ie: $opacity * 100;
+  filter: alpha(opacity=$opacity-ie); //IE8
+}
+
+
+.alpha-90 {
+  @include opacity(.9);
+}
+
+.state-alpha-0 {
+  @include opacity(0);
+}
+
+.is-bottom {
+  position: fixed;
+  top:  0;
+
+  background-color: black;
+  border: none;
+  
+  z-index: 50;
+}
