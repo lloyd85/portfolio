@@ -2,13 +2,13 @@
 
 /**
  * @ngdoc function
- * @name siteApp.controller:AboutCtrl
+ * @name siteApp.controller:PortfolioCtrl
  * @description
- * # AboutCtrl
+ * # PortfolioCtrl
  * Controller of the siteApp
  */
 angular.module('siteApp')
-  .controller('AboutCtrl', function ($scope) {
+  .controller('PortfolioCtrl', function ($scope) {
     $scope.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',

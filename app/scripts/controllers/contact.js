@@ -2,13 +2,13 @@
 
 /**
  * @ngdoc function
- * @name siteApp.controller:AboutCtrl
+ * @name siteApp.controller:ContactCtrl
  * @description
- * # AboutCtrl
+ * # ContactCtrl
  * Controller of the siteApp
  */
 angular.module('siteApp')
-  .controller('AboutCtrl', function ($scope) {
+  .controller('ContactCtrl', function ($scope) {
     $scope.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',

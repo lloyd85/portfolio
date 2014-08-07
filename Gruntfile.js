@@ -362,6 +362,34 @@ module.exports = function (grunt) {
       }
     },
 
+    buildcontrol: {
+        options: {
+            dir: 'dist',
+            commit: true,
+            push: true,
+            message: 'Built %sourceName% from commit %sourceCommit% on branch %sourceBranch%'
+        },
+        pages: {
+            options: {
+                remote: 'git@github.com:lloyd85/portfolio.git',
+                branch: 'gh-pages'
+            }
+        },/*,
+        heroku: {
+            options: {
+                remote: 'git@heroku.com:example-heroku-webapp-1988.git',
+                branch: 'master',
+                tag: pkg.version
+            }
+        }*/
+        local: {
+            options: {
+                remote: '../',
+                branch: 'build'
+            }
+        }
+    },
+
     // Run some tasks in parallel to speed up the build process
     concurrent: {
       server: [
@@ -386,6 +414,7 @@ module.exports = function (grunt) {
     }
   });
 
+  grunt.loadNpmTasks('grunt-build-control');
 
   grunt.registerTask('serve', 'Compile then start a connect web server', function (target) {
     if (target === 'dist') {
@@ -429,7 +458,8 @@ module.exports = function (grunt) {
     'uglify',
     'filerev',
     'usemin',
-    'htmlmin'
+    'htmlmin',
+    'buildcontrol'
   ]);
 
   grunt.registerTask('default', [

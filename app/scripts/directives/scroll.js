@@ -5,131 +5,84 @@
 
 /**
  * @ngdoc function
- * @name siteApp.directive:pieChart
+ * @name siteApp.directive:scroll
  * @description
- * # pieChart
- * Directive for re-usable pie chart component
+ * # scroll
+ * Directive which controls scrolling
  */
 angular.module('siteApp')
-    .directive('pieChart', function (pieChartService) {
-        return {
-            scope: {},  // use a new isolated scope
-            restrict: 'AE',
-            replace: 'true',
-            templateUrl: '../views/pie-chart.html',
-            controller: function () {
+    .directive('scroll', function ($window) {
+        return function (scope, elem) {
 
-                var service = pieChartService;
+            /*  angular.forEach(document.querySelector('.photo-section'), function(value) {
+                var bgobj = angular.element(value);
 
-                this.init = function() {
+                var windowEl = angular.element($window);
 
-                   /* var canvas = document.getElementById('pie-chart-canvas');
-                    var context = canvas.getContext('2d');
-                    var centerX = canvas.width / 2;
-                    var centerY = canvas.height / 2;
-                    var radius = 70;
+                windowEl.on('scroll', scope.$apply.bind(scope, handler));
 
-                    context.beginPath();
-                    context.arc(centerX, centerY, radius, 0, 2 * Math.PI, false);
-                    context.fillStyle = 'green';
-                    context.fill();
-                    context.lineWidth = 5;
-                    context.strokeStyle = '#003300';
-                    context.stroke();
+                function handler () {
+                    var yPos = $window.scrollTop(); //.scrollTop() / 30;
 
+                    console.log(yPos);
+                }
 
-                    var canvas = document.getElementById('pie-chart-canvas'),
-                        ctx = canvas.getContext('2d'),
+                angular.element($window).bind('scroll', function () {
 
-                        CENTER,
-                        RADIUS ,
-                        lastPosition = 0, total = 0,
+                 var yPos = 7; //-($window.scrollTop() / bgobj.data('speed'));
 
-                        titles = service.titles,
-                        colors = service.colors,
-                        degrees = service.degrees;
+                 // Put together our final background position
+                 var coords = '50% ' + yPos + 'px';
+                 console.log('co-ords: ' + coords );
+                 console.log('bgobj: ' + bgobj );
+                 // Move the background
+                 // bgobj.css({ backgroundPosition: coords });
+
+                 $scope.$apply();
+                 });
 
 
-                    console.log(degrees);
-
-                    CENTER = [canvas.width / 2, canvas.height / 2],
-                    RADIUS = Math.min(canvas.width, canvas.height) / 2;
+            });*/
 
 
-                    for (var i = 0, l= degrees.length; i < l; i++) {
-                        ctx.fillStyle = colors[i];
-                        ctx.beginPath();
-                        ctx.moveTo(CENTER[0], CENTER[1]);
-                        ctx.arc(CENTER[0], CENTER[1], RADIUS, lastPosition, lastPosition+(Math.PI * 2 * (degrees[i] / total)), false);
-                        ctx.lineTo(CENTER[0],CENTER[1]);
-                        ctx.fill();
-
-                        lastPosition += Math.PI * 2 * (degrees[i] / total);
-                    };*/
+            /* Refactor the whole function */
+            function init () {
+                var windowEl = angular.element($window);
 
 
+                function handler () {
 
-                    var canvas = document.getElementById('pie-chart-canvas'),
-                        ctx = canvas.getContext('2d'),
+                    var scrollTop = ($window.pageYOffset || document.scrollTop) - (document.clientTop || 0),
+                        nav = document.getElementsByClassName('theme-header')[0],
+                        navHeight = 80;
 
-                        CENTER = [canvas.width / 2, canvas.height / 2],
-                        RADIUS = Math.min(canvas.width, canvas.height) / 2,
-                        lastPosition = 0, total = 0,
-                        result,
-
-                        data = service.getData(),
-
-                        /*titles = data.map(function(obj){
-                            return obj.title;
-                        }),*/
-                        degrees = data.map(function(obj){
-                            return convertPercentToDegree(obj.percent);
-                        }),
-                        colors = data.map(function(obj){
-                            return obj.color;
-                        });
-
-                    function convertPercentToDegree (percent) {
-                        result = percent * 3.6;
-                        return result;
+                    if (scrollTop < navHeight || isNaN(scrollTop)) {
+                        angular.element(nav).removeClass('is-bottom');
+                    } else {
+                        angular.element(nav).addClass('is-bottom');
                     }
 
-                    function getSumOfDegrees (arr) {
-                        for (var i = 0, l = arr.length;  i < l; i++) {
-                            total += arr[i];
-                        }
-                    }
+                    angular.forEach(elem.find('section'), function(value) {
+                        var speed = value.dataset.speed,
+                            type = value.dataset.type;
 
-                    function draw () {
-                        for (var i = 0, l= degrees.length; i < l; i++) {
-                            ctx.fillStyle = colors[i];
-                            ctx.beginPath();
-                            ctx.moveTo(CENTER[0], CENTER[1]);
-                            ctx.arc(CENTER[0], CENTER[1], RADIUS, lastPosition, lastPosition+(Math.PI * 2 * (degrees[i] / total)), false);
-                            ctx.lineTo(CENTER[0],CENTER[1]);
-                            ctx.fill();
+                        if (type) {
+                            angular.element($window).bind('scroll', function () {
 
-                            lastPosition += Math.PI * 2 * (degrees[i] / total);
-                        }
-                    }
+                                var yPos = -(scrollTop / speed);
+                                //console.log('speed: ' + speed + ' i: ' + i);
+                                // Put together our final background position
+                                var coords = '50% ' + yPos + 'px';
 
-                    getSumOfDegrees(degrees);
-                    draw();
-                };
+                                value.style.backgroundPosition = coords;
 
-                this.getLegendTitles = function (scope) {
-                    scope.data = service.getData();
-                };
-            },
-
-            link: function (scope, elem, attrs, ctrl) {
-
-                var ctx = elem[0];
-                console.log(ctx);
-                ctrl.init(elem);
-
-                ctrl.getLegendTitles(scope);
-               // ctrl.drawPieChart();
+                                scope.$apply();
+                            });
+                        };
+                    });
+                }
+                windowEl.on('scroll', scope.$apply.bind(scope, handler));
             }
+            scope.$on('$viewContentLoaded', init);
         };
     });

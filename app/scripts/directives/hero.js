@@ -5,9 +5,9 @@
 
 /**
  * @ngdoc function
- * @name siteApp.directive:home
+ * @name siteApp.directive:hero
  * @description
- * # home
+ * # hero
  * Directive for hero section of portfolio
  */
 angular.module('siteApp')
