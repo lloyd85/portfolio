@@ -1,0 +1,31 @@
+/**
+ * ----------------------------------------------------------------------------------------
+ * Pie Chart Styles
+ * ----------------------------------------------------------------------------------------
+ */
+
+#pie-chart {
+  float: left;
+}
+
+#legend {
+  float: left;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+#legend > ul > li{
+  margin: 0;
+  padding: 0;
+}
+
+.legend-bullet {
+  display: inline-block;
+  color: #000;
+  height: 7px;
+  width: 7px;
+  border:2px solid black;
+  margin-right: 7px;
+  margin-bottom: 0px;
+}
