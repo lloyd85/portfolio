@@ -174,6 +174,14 @@ module.exports = function (grunt) {
         ignorePath: /(\.\.\/){1,2}bower_components\//
       }
     },
+    // Deploys Project to GitHub
+    git_deploy: {
+      your_target: {
+          options: {
+              url: 'git@github.com:lloyd85/portfolio.git'
+          }
+      }
+    },
 
     // Compiles Sass to CSS and generates necessary files if requested
     compass: {
