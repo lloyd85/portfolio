@@ -1,4 +1,9 @@
+dist/scripts/scripts.a45ff4e3.js
+dist/styles/main.5e9e828d.css
+app/images/.DS_Store
 node_modules
-.tmp
-.sass-cache
 bower_components
+.tmp
+.idea
+.sass-cache
+.DS_Store
