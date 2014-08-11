@@ -25,7 +25,7 @@ angular.module('siteApp')
                 {title: 'HTML 5/ CSS', color: '#7d2c1a', percent: 20 },
                 {title: 'TDD', color: '#a74630', percent: 15 },
                 {title: 'GIT', color: '#df765f', percent: 10 },
-                {title: 'AngularJS and NodeJS', color: '#bb3030', percent: 15 },
+                {title: 'AngularJS/NodeJS', color: '#bb3030', percent: 15 },
                 {title: 'AGILE', color: '#f6d6d6', percent: 5 }
             ];
 

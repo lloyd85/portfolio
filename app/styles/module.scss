@@ -23,14 +23,30 @@
     width: 40px;
     -webkit-background-size: 40px 40px;
     background-size: 40px 40px;
-    margin-right: 25px;
+    margin-right: 22px;
 
     @include respond-to(tablet) {
       height: 60px;
       width: 60px;
       -webkit-background-size: 60px 60px;
       background-size: 60px 60px;
-      margin: 0 12px;
+      margin: 0 10px;
+    }
+
+    @include respond-to(mobile) {
+      height: 43px;
+      width: 43px;
+      -webkit-background-size: 43px 43px;
+      background-size: 43px 43px;
+      margin: 0 5px;
+    }
+
+    @include respond-to(handhelds) {
+      height: 40px;
+      width: 40px;
+      -webkit-background-size: 40px 40px;
+      background-size: 40px 40px;
+      margin: 0 5px;
     }
   }
 }
@@ -62,9 +78,18 @@
   @include respond-to(tablet) {
     width: 45%;
     float: left;
+    margin-top: 0;
+    margin-bottom: 15px;
     margin-right: 5%;
     font-size: 1.5rem;
     line-height: 2.1rem;
+  }
+
+  @include respond-to(mobile) {
+    width: 100%;
+    margin-bottom: 5%;
+    font-size: 1.6rem;
+    line-height: 2.2rem;
   }
 }
 
@@ -110,7 +135,7 @@ blockquote {
 /* Photo Section */
 
 .photo-section {
-  height:270px;
+  min-height: 250px;
 }
 
 
@@ -181,10 +206,6 @@ hr {
 
   border: none;
 }
-
-
-.test-class {}
-
 
 /* Testimonials */
 .bordered-box-header {

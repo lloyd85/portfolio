@@ -23,52 +23,6 @@ angular.module('siteApp')
 
                 this.init = function() {
 
-                   /* var canvas = document.getElementById('pie-chart-canvas');
-                    var context = canvas.getContext('2d');
-                    var centerX = canvas.width / 2;
-                    var centerY = canvas.height / 2;
-                    var radius = 70;
-
-                    context.beginPath();
-                    context.arc(centerX, centerY, radius, 0, 2 * Math.PI, false);
-                    context.fillStyle = 'green';
-                    context.fill();
-                    context.lineWidth = 5;
-                    context.strokeStyle = '#003300';
-                    context.stroke();
-
-
-                    var canvas = document.getElementById('pie-chart-canvas'),
-                        ctx = canvas.getContext('2d'),
-
-                        CENTER,
-                        RADIUS ,
-                        lastPosition = 0, total = 0,
-
-                        titles = service.titles,
-                        colors = service.colors,
-                        degrees = service.degrees;
-
-
-                    console.log(degrees);
-
-                    CENTER = [canvas.width / 2, canvas.height / 2],
-                    RADIUS = Math.min(canvas.width, canvas.height) / 2;
-
-
-                    for (var i = 0, l= degrees.length; i < l; i++) {
-                        ctx.fillStyle = colors[i];
-                        ctx.beginPath();
-                        ctx.moveTo(CENTER[0], CENTER[1]);
-                        ctx.arc(CENTER[0], CENTER[1], RADIUS, lastPosition, lastPosition+(Math.PI * 2 * (degrees[i] / total)), false);
-                        ctx.lineTo(CENTER[0],CENTER[1]);
-                        ctx.fill();
-
-                        lastPosition += Math.PI * 2 * (degrees[i] / total);
-                    };*/
-
-
-
                     var canvas = document.getElementById('pie-chart-canvas'),
                         ctx = canvas.getContext('2d'),
 

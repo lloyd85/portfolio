@@ -31,7 +31,8 @@ angular.module('siteApp')
                         desc: 'Build and modified entire frontend for Dulux by implementing new styles and Javascrript',
                         tech: 'KnockoutJS, HTML5, CSS3, SASS, GIT',
                         imageUrl: 'images/portfolio/images/img01.jpg',
-                        thumbUrl: 'images/portfolio/thumbs/thum01.jpg'
+                        thumbUrl: 'images/portfolio/thumbs/thum01.jpg',
+                        projectUrl: 'http://www.dulux.com.sg/en/colour-inspiration'
                     },
                     {
                         client: 'Skyscanner Ltd',
@@ -39,15 +40,8 @@ angular.module('siteApp')
                         desc: 'Rebuild the entire frontend for the Skyscanner B2B Website using the latest web design trends',
                         tech: 'HTML5, CSS3, LESS, jQuery, ASP.NET MVC',
                         imageUrl: 'images/portfolio/images/img02.jpg',
-                        thumbUrl: 'images/portfolio/thumbs/thum02.jpg'
-                    },
-                    {
-                        client: 'Skyscanner Ltd',
-                        brand: 'Lonely Planet',
-                        desc: 'Integrated Skyscanner component for official Lonely Planet website and re-styled it',
-                        tech: 'HTML5, CSS3, LESS, ASP.NET MVC',
-                        imageUrl: 'images/portfolio/images/img03.jpg',
-                        thumbUrl: 'images/portfolio/thumbs/thum03.jpg'
+                        thumbUrl: 'images/portfolio/thumbs/thum02.jpg',
+                        projectUrl: 'http://business.skyscanner.net/portal/en-GB'
                     },
                     {
                         client: 'Age UK',
@@ -55,7 +49,17 @@ angular.module('siteApp')
                         desc: 'Responsible for imagery, it\'s selection of the website',
                         tech: 'HTML, CSS, Photoshop, Content Management',
                         imageUrl: 'images/portfolio/images/img04.jpg',
-                        thumbUrl: 'images/portfolio/thumbs/thum04.jpg'
+                        thumbUrl: 'images/portfolio/thumbs/thum04.jpg',
+                        projectUrl: 'http://www.ageuk.org.uk/'
+                    },
+                    {
+                        client: 'Skyscanner Ltd',
+                        brand: 'Lonely Planet',
+                        desc: 'Integrated Skyscanner component for official Lonely Planet website and re-styled it',
+                        tech: 'HTML5, CSS3, LESS, ASP.NET MVC',
+                        imageUrl: 'images/portfolio/images/img03.jpg',
+                        thumbUrl: 'images/portfolio/thumbs/thum03.jpg',
+                        projectUrl: 'http://www.lonelyplanet.com/europe'
                     }
                 ];
 

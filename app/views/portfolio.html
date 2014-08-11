@@ -34,33 +34,33 @@
         </div>
 
         <ul id="gallery-thumb-content" class="l-inline-list">
-            <li class="gallery-thumb l-content-cell" id="thumb1" ng-click="visible='active'">
+            <li ng-repeat="val in data" class="gallery-thumb l-content-cell" id="thumb{{$index+1}}" ng-click="visible='active'">
                 <div class="fadeOutIn">
-                    <a class="gallery-button-small" href="">visit</a>
+                    <a class="gallery-button-small" ng-href="{{val.projectUrl}}">visit</a>
                     <!--<div href=""><span class="icon-zoom"></span>zoom</div>-->
                 </div>
             </li>
 
-            <li class="gallery-thumb l-content-cell" id="thumb2" ng-click="visible='active'">
+            <!--<li class="gallery-thumb l-content-cell" id="thumb2" ng-click="visible='active'">
                 <div class="fadeOutIn">
                     <a class="gallery-button-small" href="">visit</a>
-                    <!--<div href=""><span class="icon-zoom"></span>zoom</div>-->
+                    <div href=""><span class="icon-zoom"></span>zoom</div>
                 </div>
-            </li>
+            </li>-->
 
-            <li class="gallery-thumb l-content-cell" id="thumb3" ng-click="visible='active'">
-                <div class="fadeOutIn">
-                    <a class="gallery-button-small" href="">visit</a>
-                    <!--<div href=""><span class="icon-zoom"></span>zoom</div>-->
-                </div>
-            </li>
+            <!--  <li class="gallery-thumb l-content-cell" id="thumb3" ng-click="visible='active'">
+                -- <div class="fadeOutIn">
+                       <a class="gallery-button-small" href="">visit</a>
+                       <div href=""><span class="icon-zoom"></span>zoom</div>
+                  </div>
+              </li>-->
 
-            <li class="gallery-thumb l-content-cell" id="thumb4" ng-click="visible='active'">
-                <div class="fadeOutIn">
-                    <a class="gallery-button-small" href="">visit</a>
-                    <!--<div href=""><span class="icon-zoom"></span>zoom</div>-->
+                <!--<li class="gallery-thumb l-content-cell" id="thumb4" ng-click="visible='active'">
+                    <div class="fadeOutIn">
+                        <a class="gallery-button-small" href="">visit</a>
+                        <div href=""><span class="icon-zoom"></span>zoom</div>
                 </div>
-            </li>
+            </li>-->
         </ul>
 
     </section>

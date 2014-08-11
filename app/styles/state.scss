@@ -4,7 +4,6 @@
   filter: alpha(opacity=$opacity-ie); //IE8
 }
 
-
 .alpha-90 {
   @include opacity(.9);
 }

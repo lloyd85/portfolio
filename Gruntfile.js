@@ -35,7 +35,7 @@ module.exports = function (grunt) {
       },
       js: {
         files: ['<%= yeoman.app %>/scripts/{,*/}*.js'],
-        tasks: ['newer:jshint:all'],
+        /*tasks: ['newer:jshint:all'],*/
         options: {
           livereload: '<%= connect.options.livereload %>'
         }
@@ -382,14 +382,13 @@ module.exports = function (grunt) {
                 remote: 'https://github.com/lloyd85/portfolio.git',
                 branch: 'gh-pages2'
             }
-        },/*,
+        },
         heroku: {
             options: {
-                remote: 'git@heroku.com:example-heroku-webapp-1988.git',
-                branch: 'master',
-                tag: pkg.version
+                remote: 'git@heroku.com:lncd.git',
+                branch: 'master'
             }
-        }*/
+        },
         local: {
             options: {
                 remote: '../',

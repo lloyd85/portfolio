@@ -3,8 +3,10 @@
  * Pie Chart Styles
  * ----------------------------------------------------------------------------------------
  */
-
+@import 'mixins.scss';
 #pie-chart {
+  float: left;
+  width: 100%;
   h3 {
     position: relative;
     top: 2rem;
@@ -14,10 +16,72 @@
     font-style: italic;
     text-transform: capitalize;
   }
+
+  @include respond-to(tablet) {
+    width: 100%;
+  }
+}
+
+#pie-chart-canvas-wrapper {
+  position: relative;
+  float: left;
+  margin-right: 10px;
+
+  @include respond-to(mobile) {
+    width: 100%;
+  }
 }
 
 #pie-chart-canvas {
   float: left;
+
+  @include respond-to(medium-screens) {
+    width: 260px;
+  }
+
+  @include respond-to(tablet) {
+    width: 260px;
+    padding-right: 15px;
+  }
+
+  @include respond-to(mobile) {
+    width: 300px;
+    margin: 0 auto 20px;
+    padding: 0;
+  }
+
+  @include respond-to(handhelds) {
+    width: 240px;
+  }
+}
+
+#pie-chart-legend-wrapper {
+  position: relative;
+  bottom: 30px;
+
+  float: left;
+  height: auto;
+
+
+  @include respond-to(medium-screens) {
+
+  }
+
+  @include respond-to(tablet) {
+    bottom: 0px;
+    > h3 {
+      top: 0rem;
+      margin: 0 0 10px;
+    }
+  }
+
+  @include respond-to(mobile) {
+    margin: 0 0 10px 20px;
+  }
+
+  @include respond-to(handhelds) {
+
+  }
 }
 
 #pie-chart-legend {
@@ -30,6 +94,8 @@
   > ul > li {
     margin: 0;
     padding: 0;
+
+    font-size: 1.8rem;
   }
 }
 
@@ -47,4 +113,8 @@
 
 .pie-chart-legend-desc {
   font-size: 1.6rem;
+
+  @include respond-to(medium-screens) {
+    font-size: 1.4rem;
+  }
 }

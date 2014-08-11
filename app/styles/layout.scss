@@ -74,9 +74,17 @@
 
 .l-container-scrollable {
   position: relative;
-  height: 250px;
+  height: 500px;
 
-  background: 50% 0 repeat fixed; min-height: 1000px;
+  background: 50% 0 repeat fixed;
+
+  @include respond-to(mobile) {
+    height: 250px;
+  }
+
+  @include respond-to(handheld) {
+    height: 100px;
+  }
 }
 
 /* General Layout */
@@ -154,10 +162,6 @@
   margin: -.5em 0 0 4.5em;
 }
 
-
-
-
-
 /* Header */
 #main-header {
 
@@ -172,24 +176,17 @@
   }
 }
 
-
-
-
-
 /* Hero Unit */
 .l-hero-unit {
   margin-left: 3em;
   width: 500px;
 }
 
-
-
-
-
 /* Footer */
 #main-footer {
-
   padding: .7em 0;
+  position: absolute;
+  width: 100%;
 
   color: white;
   background-color: black;
@@ -201,8 +198,6 @@
     margin: 0;
   }
 }
-
-
 
 /**
  * ----------------------------------------------------------------------------------------

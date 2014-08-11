@@ -11,78 +11,59 @@
  * Directive which controls scrolling
  */
 angular.module('siteApp')
-    .directive('scroll', function ($window) {
-        return function (scope, elem) {
+    .directive('scroll', function ($window, $location, anchorSmoothScroll) {
+        return {
+            controller: function() {
+                this.gotoElement = function (eID, offset) {
+                    // set the location.hash to the id of
+                    // the element you wish to scroll to.
+                    $location.hash(eID);
 
-            /*  angular.forEach(document.querySelector('.photo-section'), function(value) {
-                var bgobj = angular.element(value);
+                    // call $anchorScroll()
+                    anchorSmoothScroll.scrollTo(eID, offset);
+                };
+            },
+            link: function (scope, elem, attrs, ctrl) {
+                /* Refactor the whole function */
+                function init() {
+                    var windowEl = angular.element($window);
 
-                var windowEl = angular.element($window);
+                    function handler() {
 
-                windowEl.on('scroll', scope.$apply.bind(scope, handler));
+                        var scrollTop = ($window.pageYOffset || document.scrollTop) - (document.clientTop || 0),
+                            nav = document.getElementsByClassName('theme-header')[0],
+                            navHeight = 80;
 
-                function handler () {
-                    var yPos = $window.scrollTop(); //.scrollTop() / 30;
+                        if (scrollTop < navHeight || isNaN(scrollTop)) {
+                            angular.element(nav).removeClass('is-bottom fadeOutIn');
+                        } else {
+                            angular.element(nav).addClass('is-bottom fadeOutIn');
+                        }
 
-                    console.log(yPos);
-                }
+                        angular.forEach(elem.find('section'), function (value) {
+                            var speed = value.dataset.speed,
+                                type = value.dataset.type;
 
-                angular.element($window).bind('scroll', function () {
+                            if (type) {
+                                angular.element($window).bind('scroll', function () {
 
-                 var yPos = 7; //-($window.scrollTop() / bgobj.data('speed'));
+                                    var yPos = -(scrollTop / speed);
+                                    //console.log('speed: ' + speed + ' i: ' + i);
+                                    // Put together our final background position
+                                    var coords = '50% ' + yPos + 'px';
 
-                 // Put together our final background position
-                 var coords = '50% ' + yPos + 'px';
-                 console.log('co-ords: ' + coords );
-                 console.log('bgobj: ' + bgobj );
-                 // Move the background
-                 // bgobj.css({ backgroundPosition: coords });
+                                    value.style.backgroundPosition = coords;
 
-                 $scope.$apply();
-                 });
-
-
-            });*/
-
-
-            /* Refactor the whole function */
-            function init () {
-                var windowEl = angular.element($window);
-
-
-                function handler () {
-
-                    var scrollTop = ($window.pageYOffset || document.scrollTop) - (document.clientTop || 0),
-                        nav = document.getElementsByClassName('theme-header')[0],
-                        navHeight = 80;
-
-                    if (scrollTop < navHeight || isNaN(scrollTop)) {
-                        angular.element(nav).removeClass('is-bottom');
-                    } else {
-                        angular.element(nav).addClass('is-bottom');
+                                    scope.$apply();
+                                });
+                            }
+                        });
                     }
 
-                    angular.forEach(elem.find('section'), function(value) {
-                        var speed = value.dataset.speed,
-                            type = value.dataset.type;
-
-                        if (type) {
-                            angular.element($window).bind('scroll', function () {
-
-                                var yPos = -(scrollTop / speed);
-                                //console.log('speed: ' + speed + ' i: ' + i);
-                                // Put together our final background position
-                                var coords = '50% ' + yPos + 'px';
-
-                                value.style.backgroundPosition = coords;
-
-                                scope.$apply();
-                            });
-                        };
-                    });
+                    windowEl.on('scroll', scope.$apply.bind(scope, handler));
                 }
-                windowEl.on('scroll', scope.$apply.bind(scope, handler));
+                scope.gotoElement = ctrl.gotoElement;
+                scope.$on('$viewContentLoaded', init);
             }
-            scope.$on('$viewContentLoaded', init);
         };
     });

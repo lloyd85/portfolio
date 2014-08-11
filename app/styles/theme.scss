@@ -43,6 +43,8 @@ hr.theme-margin {
   padding: 14px 0 0;
 
   border-top: 1px white solid;
+
+  z-index: 5;
 }
 
 
@@ -56,10 +58,10 @@ hr.theme-margin {
   display: inline-block;
 }
 
- .nav {
-
+.nav {
    li {
      margin: 0 45px;
+
      a {
        font-family: 'Lato', Helvetica Neue, Helvetica, Arial, sans-serif;
        color: white;
@@ -67,7 +69,29 @@ hr.theme-margin {
        font-size: 1.4rem;
        font-weight: normal;
      }
+
+     @include respond-to(tablet) {
+       margin: 0 25px;
+     }
    }
+}
+
+#icon-menu {
+  display: none;
+
+  @include respond-to(mobile) {
+    display: block;
+    position: fixed;
+    right: 20px;
+    top: 20px;
+    height: 50px;
+    width: 50px;
+
+    background: url(../images/icons/icon-main-nav.svg) 0 0 no-repeat;
+    -webkit-background-size: cover;
+    background-size: cover;
+  }
+
 }
 
 
@@ -84,20 +108,25 @@ hr.theme-margin {
   width: 100%;
   height: 100%;
 
-  background:
-    repeating-linear-gradient(
-        315deg,
-        rgba(0, 0, 0, 0.2),
-        rgba(0, 0, 0, 0.2) 2px,
-        rgba(0, 0, 0, 0.5) 5px,
-        rgba(0, 0, 0, 0.5) 10px
-    ),     url(http://upload.wikimedia.org/wikipedia/commons/d/d4/New_York_City_at_night_HDR_edit1.jpg) no-repeat center center fixed;
+  background: url(../images/bg-photo-hero.jpg) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
 
   opacity:0;
+
+  #diag-line {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    background: url(../images/overlay-diag-ln.png);
+    -webkit-background-size: 80px 75px;
+    background-size: 80px 75px;
+
+    opacity: 0.5;
+  }
 }
 
 
@@ -106,9 +135,16 @@ hr.theme-margin {
   width:100%;
   max-width: 600px;
 
+  z-index: 4;
+
   * {
     display: inline-block;
     margin-bottom: 15px;
+  }
+
+  @include respond-to(mobile) {
+    width: 95%;
+    bottom: 100px;
   }
 }
 
@@ -125,6 +161,10 @@ hr.theme-margin {
   @include respond-to(tablet) {
     height: 45px;
   }
+
+  @include respond-to(mobile) {
+    height: 25px;
+  }
 }
 
 .hero-text-style2 {
@@ -135,6 +175,10 @@ hr.theme-margin {
 
   @include respond-to(tablet) {
     height: 50px;
+  }
+
+  @include respond-to(mobile) {
+    height: 28px;
   }
 }
 
@@ -150,6 +194,9 @@ hr.theme-margin {
   @include respond-to(tablet) {
     font-size: 6.86rem;
   }
+  @include respond-to(mobile) {
+    font-size: 3.77rem;
+  }
 }
 
 #hero-text2 {
@@ -157,12 +204,18 @@ hr.theme-margin {
   @include respond-to(tablet) {
     font-size: 6rem;
   }
+  @include respond-to(mobile) {
+    font-size: 3.2rem;
+  }
 }
 
 #hero-text3 {
   font-size: 9.1rem;
   @include respond-to(tablet) {
     font-size: 7.4rem;
+  }
+  @include respond-to(mobile) {
+    font-size: 3.9rem;
   }
 }
 
@@ -175,6 +228,10 @@ hr.theme-margin {
 
   @include respond-to(tablet) {
     font-size: 2rem;
+  }
+  @include respond-to(mobile) {
+    margin: 0;
+    font-size: 1.9rem;
   }
 }
 
@@ -255,6 +312,10 @@ hr.theme-margin {
   background-size: cover;
 }
 
+#about-intro > p {
+  margin-top: 0;
+  margin-bottom: 0.8em;
+}
 /* Contact Page */
 
 .contact {
@@ -290,7 +351,6 @@ hr.theme-margin {
   font-weight: 700;
 }
 
-
 p {
 
   a {
@@ -300,6 +360,13 @@ p {
       color: white;
       background-color: $accent-color;
     }
+  }
+  @include respond-to(mobile) {
+    margin: 0 0 15px;
+  }
+
+  @include respond-to(handhelds) {
+    margin: 0 0 10px;
   }
 }
 
@@ -311,6 +378,23 @@ h3 {
   font-family: 'Rambla', Arial, sans-serif;
   font-weight: bold;
   text-transform: uppercase;
+}
+h1 {
+   @include respond-to(mobile) {
+     font-size: 5rem;
+     margin: 2.5rem 0;
+   }
+
+   @include respond-to(handhelds) {
+     font-size: 3.8rem;
+     margin: 2rem 0;
+   }
+}
+
+h4 {
+  @include respond-to(handhelds) {
+    font-size: 2rem;
+  }
 }
 
 blockquote {
@@ -348,9 +432,73 @@ blockquote {
 
   -webkit-background-size: 30px 30px;
   background-size: 30px 30px;
+
+  @include respond-to(mobile) {
+      height: 27px;
+      width: 23px;
+
+      -webkit-background-size: 24px 25px;
+      background-size: 24px 25px;
+  }
+
+  @include respond-to(handhelds) {
+    height: 27px;
+    width: 23px;
+
+    -webkit-background-size: 24px 25px;
+    background-size: 24px 25px;
+  }
 }
 
+.theme-width {
+  width: 50%;
+  max-width: 470px;
 
+  @include respond-to(medium-screens) {
+    width: 35%;
+  }
+
+  @include respond-to(tablet) {
+    max-width: none;
+    width: 100%;
+
+    margin-bottom: 30px;
+
+  }
+
+  @include respond-to(mobile) {
+
+  }
+
+  @include respond-to(handhelds) {
+
+  }
+}
+
+.theme-width2 {
+  width: 50%;
+  max-width: 450px;
+
+  @include respond-to(medium-screens) {
+    width: 65%;
+  }
+
+  @include respond-to(tablet) {
+    max-width: none;
+    width: 100%;
+
+    margin-bottom: 30px;
+
+  }
+
+  @include respond-to(mobile) {
+
+  }
+
+  @include respond-to(handhelds) {
+
+  }
+}
 
   /* Buttons */
   .theme-button-primary {
