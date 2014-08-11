@@ -1,6 +1,7 @@
 /**
  * Created by lloydntim on 09/08/2014.
  */
+'use strict';
 /**
  * @ngdoc function
  * @name siteApp.service:anchorSmoothScroll
