@@ -470,12 +470,12 @@ module.exports = function (grunt) {
     'ngmin',
     'copy:dist',
     'cdnify',
-    'cssmin',
+    //'cssmin',
     'uglify',
     'filerev',
     'usemin',
-    'htmlmin',
-    'buildcontrol'
+    'htmlmin' //,
+    //'buildcontrol'
   ]);
 
   grunt.registerTask('default', [
