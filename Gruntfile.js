@@ -344,35 +344,38 @@ module.exports = function (grunt) {
 
     // Copies remaining files to places other tasks can use
     copy: {
-      dist: {
-        files: [{
-          expand: true,
-          dot: true,
-          cwd: '<%= yeoman.app %>',
-          dest: '<%= yeoman.dist %>',
-          src: [
-            '*.{ico,png,txt}',
-            '.htaccess',
-            'web.js',
-            '.Procfile',
-            '*.html',
-            'views/{,*/}*.html',
-            'images/{,*/}*.{webp}',
-            'fonts/*'
-          ]
-        }, {
-          expand: true,
-          cwd: '.tmp/images',
-          dest: '<%= yeoman.dist %>/images',
-          src: ['generated/*']
-        }]
-      },
-      styles: {
-        expand: true,
-        cwd: '<%= yeoman.app %>/styles',
-        dest: '.tmp/styles/',
-        src: '{,*/}*.css'
-      }
+        dist: {
+            files: [
+                {
+                    expand: true,
+                    dot: true,
+                    cwd: '<%= yeoman.app %>',
+                    dest: '<%= yeoman.dist %>',
+                    src: [
+                        '*.{ico,png,txt}',
+                        '.htaccess',
+                        'web.js',
+                        '.Procfile',
+                        '*.html',
+                        'views/{,*/}*.html',
+                        'images/{,*/}*.{webp}',
+                        'fonts/*'
+                    ]
+                },
+                {
+                    expand: true,
+                    cwd: '.tmp/images',
+                    dest: '<%= yeoman.dist %>/images',
+                    src: ['generated/*']
+                }
+            ]
+        },
+        styles: {
+            expand: true,
+            cwd: '<%= yeoman.app %>/styles',
+            dest: '.tmp/styles/',
+            src: '{,*/}*.css'
+        }
     },
 
     /*buildcontrol: {
@@ -416,7 +419,7 @@ module.exports = function (grunt) {
         'imagemin',
         'svgmin'
       ]
-    },
+    },*/
 
     // Test settings
     karma: {
@@ -427,7 +430,7 @@ module.exports = function (grunt) {
     }
   });
 
-  //grunt.loadNpmTasks('grunt-build-control');*/
+  grunt.loadNpmTasks('grunt-build-control');
 
   grunt.registerTask('serve', 'Compile then start a connect web server', function (target) {
     if (target === 'dist') {
