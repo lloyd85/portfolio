@@ -3,6 +3,7 @@ dist/styles/main.5e9e828d.css
 app/images/.DS_Store
 node_modules
 bower_components
+heroku
 .tmp
 .idea
 .sass-cache
