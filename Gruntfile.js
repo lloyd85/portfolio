@@ -381,7 +381,7 @@ module.exports = function (grunt) {
         },
         pages: {
             options: {
-                remote: 'https://github.com/lloyd85/portfolio/app.git',
+                remote: 'https://github.com/lloyd85/portfolio.git app',
                 branch: 'gh-pages2'
             }
         },
