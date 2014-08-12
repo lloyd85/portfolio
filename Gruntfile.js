@@ -21,6 +21,9 @@ module.exports = function (grunt) {
     dist: 'dist'
   };
 
+  // Project configuration.
+  var pkg = require('./package.json');
+
   // Define the configuration for all the tasks
   grunt.initConfig({
 
@@ -381,14 +384,15 @@ module.exports = function (grunt) {
         },
         pages: {
             options: {
-                remote: 'https://github.com/lloyd85/portfolio.git app',
+                remote: 'https://github.com/lloyd85/portfolio.git',
                 branch: 'gh-pages2'
             }
         },
         heroku: {
             options: {
                 remote: 'git@heroku.com:lncd.git',
-                branch: 'master'
+                branch: 'master',
+                tag: pkg.version
             }
         },
         local: {
